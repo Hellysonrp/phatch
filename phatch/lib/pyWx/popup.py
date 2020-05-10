@@ -1,4 +1,4 @@
-# Copyright (C) 2007-2008 www.stani.be
+﻿# Copyright (C) 2007-2008 www.stani.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -225,7 +225,7 @@ class _PathCtrl(_ComposedCtrl):
                 and not sys.platform.startswith('win'):
             self.path.SetSelection(-1, -1)
         #browse button
-        bmp = wx.ArtProvider_GetBitmap(wx.ART_FOLDER_OPEN, wx.ART_OTHER,
+        bmp = wx.ArtProvider.GetBitmap(wx.ART_FOLDER_OPEN, wx.ART_OTHER,
                         size=(16, 16))
         self.browse = wx.BitmapButton(self, -1, bmp, style=wx.NO_BORDER)
         #extensions
@@ -415,7 +415,7 @@ class FileCtrl(_PathCtrl):
     wildcard = _t('All files') + '|*'
 
     def OnBrowse(self, event):
-        style = wx.OPEN | wx.CHANGE_DIR
+        style = wx.FD_OPEN | wx.FD_CHANGE_DIR
         if hasattr(wx, 'FD_PREVIEW'):
             style |= wx.FD_PREVIEW
         dlg = wx.FileDialog(self, self._to_local("Choose a file"),
@@ -744,8 +744,8 @@ class EditPanel(wx.Panel):
 
     #---support methods
     def _SetColours(self):
-        self.bgcolor = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHT)
-        self.fgcolor = wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT)
+        self.bgcolor = wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT)
+        self.fgcolor = wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT)
         self.SetBackgroundColour(self.bgcolor)
 
 

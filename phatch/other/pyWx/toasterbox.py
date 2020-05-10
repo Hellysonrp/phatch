@@ -1,4 +1,4 @@
-# --------------------------------------------------------------------------- #
+﻿# --------------------------------------------------------------------------- #
 # TOASTERBOX wxPython IMPLEMENTATION
 # Ported And Enhanced From wxWidgets Contribution (Aj Bommarito) By:
 #
@@ -377,7 +377,7 @@ class ToasterBox(wx.Timer):
                tmpTb.SetDimensions(self._popupposition[0], ourNewHeight, tmpTb.GetSize().GetWidth(),
                                    tmpTb.GetSize().GetHeight())
 
-           wx.Usleep(self._sleeptime)
+           wx.MilliSleep(self._sleeptime)
 
 
    def CleanList(self):
@@ -422,7 +422,7 @@ class ToasterBoxWindow(wx.Frame):
        wx.Frame.__init__(self, parent, wx.ID_ANY, "window", wx.DefaultPosition,
                          wx.DefaultSize, style=windowstyle | wx.CLIP_CHILDREN)
 
-       self._starttime = wx.GetLocalTime()
+       self._starttime = wx.DateTime.Now().GetTicks()
        self._parent2 = parent2
        self._parent = parent
        self._sleeptime = 10
@@ -678,7 +678,7 @@ class ToasterBoxWindow(wx.Frame):
            if self._tbstyle == TB_SIMPLE:
                self.DrawText()
 
-           wx.Usleep(self._sleeptime)
+           wx.MilliSleep(self._sleeptime)
            self.Update()
            self.Refresh()
 
@@ -732,7 +732,7 @@ class ToasterBoxWindow(wx.Frame):
            self.SetDimensions(self._dialogtop[0], dimY,
                               self.GetSize().GetWidth(), windowsize)
 
-           wx.Usleep(self._sleeptime)
+           wx.MilliSleep(self._sleeptime)
            self.Refresh()
 
        self.Hide()

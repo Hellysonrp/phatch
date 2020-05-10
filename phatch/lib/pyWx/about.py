@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+﻿# -*- coding: UTF-8 -*-
 
 # Copyright (C) 2007-2008 www.stani.be
 #
@@ -248,7 +248,7 @@ def example():
         return result
 
     app         = wx.PySimpleApp(0)
-    logo        = wx.ArtProvider_GetBitmap(wx.ART_GO_HOME,wx.ART_OTHER,(128,128))
+    logo        = wx.ArtProvider.GetBitmap(wx.ART_GO_HOME,wx.ART_OTHER,(128,128))
     credits     = create_credits('code','documentation','translation',
                     'libraries','graphics')
     aboutDialog = Dialog(None, 'title', logo, 'description', 'website',

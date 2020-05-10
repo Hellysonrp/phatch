@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+﻿# -*- coding: UTF-8 -*-
 
 # Phatch - Photo Batch Processor
 # Copyright (C) 2007-2008 www.stani.be
@@ -133,7 +133,7 @@ class ExecuteDialog(BrowseMixin, dialogs.ExecuteDialog):
         self.set_drop(drop)
 
     def browse_files(self):
-        style = wx.OPEN | wx.MULTIPLE | wx.CHANGE_DIR
+        style = wx.FD_OPEN | wx.FD_MULTIPLE | wx.FD_CHANGE_DIR
         if hasattr(wx, 'FD_PREVIEW'):
             style |= wx.FD_PREVIEW
         dlg = wx.FileDialog(

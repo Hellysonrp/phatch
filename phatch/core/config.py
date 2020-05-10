@@ -214,8 +214,8 @@ def init_config_paths(config_paths=None):
     phatch_path = fix_python_path(config_paths.get('PHATCH_PYTHON_PATH', None))
     #patches for pil <= 1.1.6 (ImportError=skip during build process)
     try:
-        from PIL import Image
-        if Image.VERSION < '1.1.7':
+        from PIL import __version__
+        if __version__ < '1.1.7':
             fix_python_path(os.path.join(phatch_path, 'other', 'pil_1_1_6'))
     except ImportError:
         pass

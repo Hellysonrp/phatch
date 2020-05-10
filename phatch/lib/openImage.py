@@ -18,6 +18,7 @@
 import os
 import re
 
+from PIL import __version__
 from PIL import Image
 
 import imtools
@@ -53,7 +54,7 @@ def open(uri):
     except IOError, message:
         ok = False
     # interlaced png
-    if ok and not(Image.VERSION < '1.1.7' and
+    if ok and not(__version__ < '1.1.7' and
             image.format == 'PNG' and 'interlace' in image.info):
         return image
     # png, tiff (which pil can only handle partly)

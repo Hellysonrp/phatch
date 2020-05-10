@@ -26,7 +26,7 @@ def pil_wxImage(image):
         wx_image = wx.EmptyImage(*image.size)
         wx_image.SetData(image.convert("RGB").tobytes())
         wx_image.InitAlpha()
-        wx_image.SetAlphaData(
+        wx_image.SetAlphaBuffer(
             image.convert("RGBA").split()[-1].tobytes())
     else:
         wx_image = wx.EmptyImage(*image.size)
@@ -42,12 +42,12 @@ def pil_wxBitmap(image):
 
 def wxImage_pil(wx_image):
     size = wx_image.GetSize()
-    image = Image.new('RGB', size)
-    image.frombytes(wx_image.GetData())
+    image = Image.new('RGB', (size.GetWidth(), size.GetHeight()))
+    image.frombytes(str(wx_image.GetData()))
     if wx_image.HasAlpha():
-        alpha = Image.new('L', size)
-        wx_alpha = wx_image.GetAlphaData()
-        alpha.frombytes(wx_alpha)
+        alpha = Image.new('L', (size.GetWidth(), size.GetHeight()))
+        wx_alpha = wx_image.GetAlphaBuffer()
+        alpha.frombytes(str(wx_alpha.tobytes()))
         image = image.convert('RGBA')
         image.putalpha(alpha)
     return image

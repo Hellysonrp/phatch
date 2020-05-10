@@ -78,6 +78,8 @@ import dialogs
 import plugin
 from wxGlade import frame
 
+wx.DisableAsserts() #gambiarra
+
 WX_ENCODING = wx.GetDefaultPyEncoding()
 COMMAND_PASTE = \
     _('You can paste it as text into the properties of a new launcher.')
@@ -560,7 +562,7 @@ class Frame(DialogsMixin, dialogs.BrowseMixin, droplet.Mixin, paint.Mixin,
             message=_('Choose an Action List File...'),
             defaultDir=os.path.dirname(self.filename),
             wildcard=ct.WILDCARD,
-            style=wx.OPEN,
+            style=wx.FD_OPEN,
         )
         if dlg.ShowModal() == wx.ID_OK:
             filename = dlg.GetPath()
@@ -592,7 +594,7 @@ class Frame(DialogsMixin, dialogs.BrowseMixin, droplet.Mixin, paint.Mixin,
             message=_('Save Action List As...'),
             defaultDir=default_dir,
             wildcard=ct.WILDCARD,
-            style=wx.SAVE | wx.OVERWRITE_PROMPT,
+            style=wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
         )
         if dlg.ShowModal() == wx.ID_OK:
             saved = True

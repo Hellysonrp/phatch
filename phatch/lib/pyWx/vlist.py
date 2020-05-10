@@ -1,4 +1,4 @@
-# Copyright (C) 2007-2008 www.stani.be
+﻿# Copyright (C) 2007-2008 www.stani.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -65,7 +65,7 @@ class Box(wx.VListBox):
             self._color_to = wx.Colour(217, 226, 234)
         else:
             # theme based
-            hilight = wx.SystemSettings_GetColour(wx.SYS_COLOUR_MENUHILIGHT)
+            hilight = wx.SystemSettings.GetColour(wx.SYS_COLOUR_MENUHILIGHT)
             self._color_from = self.GradientColour(hilight)
             self._color_to = hilight
 
@@ -118,8 +118,8 @@ class Box(wx.VListBox):
 
         for coord in xrange(start, start + size):
 
-            currCol = wx.Colour(col1.Red() + rf, col1.Green() + gf, \
-            col1.Blue() + bf)
+            currCol = wx.Colour(int(col1.Red() + rf), int(col1.Green() + gf), \
+            int(col1.Blue() + bf))
             dc.SetBrush(wx.Brush(currCol, wx.SOLID))
             dc.SetPen(wx.Pen(currCol))
             if self._is_vertical:
@@ -160,7 +160,7 @@ class Box(wx.VListBox):
     def GetItem(self, n):
         """Needs to be overwritten."""
         return ('label %d' % n, 'summary %d' % n,
-            wx.ArtProvider_GetBitmap(wx.ART_INFORMATION, wx.ART_OTHER,
+            wx.ArtProvider.GetBitmap(wx.ART_INFORMATION, wx.ART_OTHER,
                 self.GetIconSize()))
 
     def RefreshAll(self):

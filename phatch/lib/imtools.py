@@ -20,6 +20,7 @@ from cStringIO import StringIO
 from itertools import cycle
 from urllib import urlopen
 
+from PIL import __version__
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageEnhance
@@ -475,7 +476,7 @@ def has_transparency(image):
             has_alpha(image)
 
 
-if Image.VERSION == '1.1.7':
+if __version__ == '1.1.7':
 
     def split(image):
         """Work around for bug in Pil 1.1.7

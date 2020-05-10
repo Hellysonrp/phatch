@@ -51,7 +51,7 @@ class Mixin:
             while (tw >= cw or th >= ch) and font_size > 5:
                 font_size -= 1
                 font = wx.Font(font_size, wx.FONTFAMILY_SWISS,
-                                wx.FONTSTYLE_NORMAL, wx.FONTSTYLE_NORMAL,
+                                wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,
                                 encoding=wx.FONTENCODING_SYSTEM)
                 dc.SetFont(font)
                 tw, th = dc.GetTextExtent(paint_message)
@@ -85,7 +85,7 @@ class Mixin:
             penclr = self.paint_color
         dc.SetPen(wx.Pen(penclr))
         dc.SetBrush(wx.Brush(self.paint_color))
-        dc.DrawRoundedRectangleRect(rect, self.paint_radius)
+        dc.DrawRoundedRectangle(rect, self.paint_radius)
         # Draw text.
         dc.SetTextForeground(paint_object.GetBackgroundColour())
         dc.DrawText(paint_message, rx + td, ry + td)

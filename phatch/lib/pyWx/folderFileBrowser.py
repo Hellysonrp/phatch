@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 www.stani.be
 #
@@ -99,12 +99,12 @@ class WxgPanel(wx.Panel):
 
     def __set_properties(self):
         # begin wxGlade: WxgPanel.__set_properties
-        self.SetBackgroundColour(wx.SystemSettings_GetColour(wx.SYS_COLOUR_APPWORKSPACE))
+        self.SetBackgroundColour(wx.SystemSettings.GetColour(wx.SYS_COLOUR_APPWORKSPACE))
         self.filter.SetFocus()
         self.tree.SetBackgroundColour(wx.Colour(255, 255, 255))
         self.preview.SetMinSize((128, 128))
         self.preview.Hide()
-        self.tree_panel.SetBackgroundColour(wx.SystemSettings_GetColour(wx.SYS_COLOUR_APPWORKSPACE))
+        self.tree_panel.SetBackgroundColour(wx.SystemSettings.GetColour(wx.SYS_COLOUR_APPWORKSPACE))
         # end wxGlade
 
     def __do_layout(self):
@@ -113,7 +113,7 @@ class WxgPanel(wx.Panel):
         list_sizer = wx.BoxSizer(wx.VERTICAL)
         tree_sizer = wx.BoxSizer(wx.VERTICAL)
         sizer_7 = wx.BoxSizer(wx.HORIZONTAL)
-        sizer_7.Add(self.filter, 1, wx.EXPAND|wx.ALIGN_CENTER_VERTICAL, 0)
+        sizer_7.Add(self.filter, 1, wx.EXPAND, 0)
         main_sizer.Add(sizer_7, 0, wx.EXPAND, 0)
         tree_sizer.Add(self.tree, 1, wx.EXPAND, 0)
         tree_sizer.Add(self.preview, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 6)

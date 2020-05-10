@@ -1,4 +1,4 @@
-# Copyright (C) 2007-2008 www.stani.be
+﻿# Copyright (C) 2007-2008 www.stani.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -195,9 +195,9 @@ class Table(gridlib.PyGridTableBase):
         #selected rows
         self.selected_attr = gridlib.GridCellAttr()
         self.selected_attr.SetBackgroundColour(
-            wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHT))
+            wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT))
         self.selected_attr.SetTextColour(
-            wx.SystemSettings_GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT))
+            wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT))
 
     # This is all it takes to make a custom data table to plug into a
     # wxGrid.  There are many more methods that can be overridden, but
@@ -792,7 +792,7 @@ class Grid(droplet.Mixin, gridlib.Grid):
 class OpenMixin(object):
 
     def OnOpen(self, event):
-        style = wx.OPEN | wx.CHANGE_DIR
+        style = wx.FD_OPEN | wx.FD_CHANGE_DIR
         if hasattr(wx, 'FD_PREVIEW'):
             style |= wx.FD_PREVIEW
         path = os.path.dirname(self.image_table.images[-1].filename)

@@ -1,4 +1,4 @@
-# Copyright (C) 2007-2008 www.stani.be
+﻿# Copyright (C) 2007-2008 www.stani.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@ except ImportError:
 
 def bitmap(icon, size=(48, 48), client=wx.ART_OTHER):
     if icon[:4] == 'ART_':
-        return wx.ArtProvider_GetBitmap(getattr(wx, icon), client, size)
+        return wx.ArtProvider.GetBitmap(getattr(wx, icon), client, size)
     else:
         return wx.BitmapFromImage(image(icon))
 

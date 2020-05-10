@@ -1,4 +1,4 @@
-# Copyright: (c) 2006 CDF Inc. ( http://www.cdf-imaging.com )
+﻿# Copyright: (c) 2006 CDF Inc. ( http://www.cdf-imaging.com )
 # License: wxWidgets(based on LGPL,http://www.wxwidgets.org/about/newlicen.htm)
 # Website: http://wiki.wxpython.org/TextCtrlAutoComplete
 
@@ -118,7 +118,7 @@ class TextCtrlAutoComplete (wx.TextCtrl, listmix.ColumnSorterMixin ):
 
         if sys.platform.startswith('linux'):
             self.dropdownlistbox.SetBackgroundColour(
-                wx.SystemSettings_GetColour(wx.SYS_COLOUR_INFOBK))
+                wx.SystemSettings.GetColour(wx.SYS_COLOUR_INFOBK))
         #initialize the parent
         if multiChoices: ln = len(multiChoices)
         else: ln = 1

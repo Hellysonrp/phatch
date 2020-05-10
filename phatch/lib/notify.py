@@ -1,4 +1,4 @@
-# Copyright (C) 2009 www.stani.be
+﻿# Copyright (C) 2009 www.stani.be
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -93,7 +93,7 @@ elif TB:
     def send(title, message, icon='gtk-dialog-info',
             wxicon=None, urgency=None, timeout=None):
         if wxicon == None:
-            wxicon = wx.ArtProvider_GetBitmap(wx.ART_INFORMATION,
+            wxicon = wx.ArtProvider.GetBitmap(wx.ART_INFORMATION,
                 wx.ART_OTHER, (48, 48))
         tb = TB.ToasterBox(wx.GetApp().GetTopWindow(),
             TB.TB_COMPLEX, TB.DEFAULT_TB_STYLE, TB.TB_ONTIME)
@@ -116,8 +116,8 @@ elif TB:
         ver_sizer.Add(message, 0, wx.ALL, 4)
 
         hor_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        hor_sizer.Add(wxicon, 0, wx.EXPAND | wx.ALIGN_CENTER_VERTICAL \
-            | wx.ALIGN_CENTER_HORIZONTAL | wx.ALL, 4)
+        hor_sizer.Add(wxicon, 0, wx.EXPAND \
+            | wx.ALL, 4)
         hor_sizer.Add(ver_sizer, 1, wx.EXPAND)
         hor_sizer.Layout()
         panel.SetSizer(hor_sizer)

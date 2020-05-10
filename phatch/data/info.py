@@ -474,9 +474,9 @@ HEADER = "Phatch is the result of work by (in no particular order):"
 
 def all_credits():
     #PIL - Python Image Library
-    from PIL import Image
+    from PIL import __version__
     pil_credits = PIL_CREDITS
-    pil_credits['name'] += ' %s' % Image.VERSION
+    pil_credits['name'] += ' %s' % __version__
     if not (pil_credits in CREDITS['libraries']):
         CREDITS['libraries'].append(pil_credits)
     #wxPython

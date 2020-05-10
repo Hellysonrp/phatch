@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 
 import wx
 from lib.pyWx.treeEdit import TreeMixin
@@ -189,8 +189,8 @@ class Frame(wx.Frame):
         for i in range(len(frame_statusbar_fields)):
             self.frame_statusbar.SetStatusText(frame_statusbar_fields[i], i)
         self.description.SetMinSize((300, 40))
-        self.description.SetBackgroundColour(wx.SystemSettings_GetColour(wx.SYS_COLOUR_INFOBK))
-        self.description.SetForegroundColour(wx.SystemSettings_GetColour(wx.SYS_COLOUR_INFOTEXT))
+        self.description.SetBackgroundColour(wx.SystemSettings.GetColour(wx.SYS_COLOUR_INFOBK))
+        self.description.SetForegroundColour(wx.SystemSettings.GetColour(wx.SYS_COLOUR_INFOTEXT))
         self.empty.SetBackgroundColour(wx.Colour(255, 255, 255))
         # end wxGlade
 
@@ -199,7 +199,7 @@ class Frame(wx.Frame):
         sizer_1 = wx.BoxSizer(wx.VERTICAL)
         sizer_1.Add(self.description, 0, wx.EXPAND, 0)
         sizer_1.Add(self.tree, 1, wx.EXPAND, 0)
-        sizer_1.Add(self.empty, 1, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 0)
+        sizer_1.Add(self.empty, 1, wx.EXPAND, 0)
         self.SetSizer(sizer_1)
         sizer_1.Fit(self)
         self.Layout()
