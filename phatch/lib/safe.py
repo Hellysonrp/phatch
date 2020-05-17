@@ -17,6 +17,7 @@
 
 #import rpdb2;rpdb2.start_embedded_debugger('x')
 
+from lib.unicoding import ensure_unicode
 import operator
 import re
 
@@ -111,13 +112,13 @@ def compile_expr(meta_expr, _globals=None, _locals=None, validate=None,
     if safe:
 
         def compile_sub_expr(expr):
-            return unicode(eval_safe(preprocess(expr.group(1)),
+            return ensure_unicode(eval_safe(preprocess(expr.group(1)),
                 _globals, _locals, validate))
 
     else:
 
         def compile_sub_expr(expr):
-            return unicode(eval(preprocess(expr.group(1)),
+            return ensure_unicode(eval(preprocess(expr.group(1)),
                 _globals, _locals))
 
     return RE_EXPR.sub(compile_sub_expr, meta_expr)

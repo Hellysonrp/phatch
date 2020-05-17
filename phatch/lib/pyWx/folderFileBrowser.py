@@ -36,6 +36,7 @@ from wx.lib.newevent import NewEvent
 from lib import listData
 from lib.system import start
 from lib.openImage import open_thumb
+from lib.unicoding import ensure_unicode
 
 from compatible import SearchCtrl
 from wxPil import pil_wxBitmap
@@ -71,7 +72,7 @@ class ListCtrl(wx.ListCtrl):
         #self.RefreshItems(0, self.data. amount)
 
     def OnGetItemText(self, item, col):
-        return self.data.get(item, col)
+        return ensure_unicode(self.data.get(item, col))
 
     def OnGetItemAttr(self, item):
         return None
